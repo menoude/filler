@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = meyami.filler
+NAME = players/meyami.filler
 DIR_LIB = libft
-SRC = main.c
+SRC = main.c tab.c piece.c
 BINARIES = $(SRC:.c=.o)
 CC = gcc -Wall -Werror -Wextra -g # ENLEVER LE G
 
