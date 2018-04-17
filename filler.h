@@ -20,6 +20,9 @@ struct s_data
 	char	**piece;
 	int		piece_height;
 	int		piece_width;
+	int		max_distance;
+	int		adv_y;
+	int		adv_x;
 };
 
 FILE *f; // a supprimer
@@ -41,7 +44,8 @@ int		piece_has_room(t_data *data, int y, int x);
 void	piece_free(t_data *data);
 
 
-void	player_play(t_data *data);
+int player_play(t_data *data);
+// int player_try(t_data *data, int i, int j);
 
 
 #endif
