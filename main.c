@@ -12,13 +12,12 @@ int main(void)
 	else
 		data.symbol = 'X';
 	free(input);
-	// fprintf(f, "%s\n", input);
-	if (!tab_init(&data))
-		return (1);
-	fprintf(f, "rows = %d & cols = %d\n", data.rows, data.cols);
-	tab_update(&data);
-	if (!piece_update(&data))
-		return (0);
+	while (1)
+	{
+		if (!tab_update(&data) || !piece_update(&data))
+			return (0);
+		player_play(&data);
+	}
 	for (int i = 0; i < data.rows; i++)
 	{
 		for (int j = 0; j < data.cols; j++)

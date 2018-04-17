@@ -24,13 +24,25 @@ struct s_data
 
 FILE *f; // a supprimer
 
+void	reader_skip_line(void);
+int		reader_tab_dimensions(t_data *data);
+int		reader_piece_dimensions(t_data *data);
+void	reader_free_info(char *input, char **info, int read);
+
 
 int		tab_init(t_data *data);
-void	tab_update(t_data *data);
+int		tab_update(t_data *data);
 int		tab_read(t_data *data, char c);
 void	tab_free(t_data *data);
 
-int piece_update(t_data *data);
+int		piece_update(t_data *data);
+void	piece_put(t_data *data, int y, int x);
+int		piece_has_room(t_data *data, int y, int x);
+void	piece_free(t_data *data);
+
+
+void	player_play(t_data *data);
+
 
 #endif
 
