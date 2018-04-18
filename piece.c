@@ -55,3 +55,9 @@ int piece_has_room(t_data *data, int y, int x)
 	}
 	return (superpos == 1);
 }
+
+void piece_put(t_data *data, int y, int x)
+{
+	piece_free(data);
+	ft_printf("%d %d\n", y, x);
+}

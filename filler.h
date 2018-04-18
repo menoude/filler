@@ -21,11 +21,12 @@ struct s_data
 	int		piece_height;
 	int		piece_width;
 	int		max_distance;
-	int		adv_y;
-	int		adv_x;
 };
 
 FILE *f; // a supprimer
+void print_tab(t_data *data); // pareil
+
+
 
 void	reader_skip_line(void);
 int		reader_tab_dimensions(t_data *data);
@@ -45,7 +46,7 @@ void	piece_free(t_data *data);
 
 
 int player_play(t_data *data);
-// int player_try(t_data *data, int i, int j);
+void player_heat_map(t_data *data);
 
 
 #endif

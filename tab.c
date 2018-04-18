@@ -2,24 +2,22 @@
 
 int		tab_read(t_data *data, char c)
 {
-	if (c == '.')
-	return (0);
-	else if (c == 'O' || c == 'o')
+	if (c == 'O' || c == 'o')
 	{
 		if (data->symbol == 'O')
-		return (1);
+			return (-1);
 		else
-		return (2);
+			return (0);
 	}
 	else if (c == 'X' || c == 'x')
 	{
 		if (data->symbol == 'X')
-		return (1);
+			return (-1);
 		else
-		return (2);
+			return (0);
 	}
 	else
-		return (-1);
+		return (data->max_distance);
 }
 
 int tab_init(t_data *data)
