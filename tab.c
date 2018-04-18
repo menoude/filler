@@ -33,7 +33,10 @@ int tab_init(t_data *data)
 	while (++i < data->rows)
 	{
 		if (!(data->tab[i] = ft_memalloc(sizeof(int) * data->cols)))
+		{
 			tab_free(data);
+			return (0);
+		}
 	}
 	data->max_distance = data->rows + data->cols + 1;
 	return (1);

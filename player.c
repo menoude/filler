@@ -1,6 +1,6 @@
 #include "filler.h"
 
-void player_write_dist_right(t_data *data, int x, int y)
+void player_write_dist_right(t_data *data, int y, int x)
 {
 	int i;
 	int j;
@@ -9,13 +9,13 @@ void player_write_dist_right(t_data *data, int x, int y)
 	i = y;
 	while (i < data->rows)
 	{
-		j = i != y ? 0 : x;
+		j = i > y ? 0 : x + 1;
 		while (j < data->cols)
 		{
 			if (data->tab[i][j] == 0)
 			{
 				dist = ft_abs_value(y - i) + ft_abs_value(x - j);
-				if (data->tab[y][x] == -1 || dist < data->tab[y][x])
+				if (dist < data->tab[y][x])
 					data->tab[y][x] = dist;
 			}
 			j++;
@@ -24,7 +24,7 @@ void player_write_dist_right(t_data *data, int x, int y)
 	}
 }
 
-void player_write_dist_left(t_data *data, int x, int y)
+void player_write_dist_left(t_data *data, int y, int x)
 {
 	int i;
 	int j;
@@ -47,7 +47,7 @@ void player_write_dist_left(t_data *data, int x, int y)
 	}
 }
 
-void player_heat_map(t_data *data)
+void player_eval_map(t_data *data)
 {
 	int i;
 	int j;
@@ -68,19 +68,23 @@ void player_heat_map(t_data *data)
 		j = data->cols;
 		while (--j >= 0)
 		{
-			// if (data->tab[i][j] > 0)
-			// 	player_write_dist_left(data, i , j);
+			if (data->tab[i][j] > 0)
+				player_write_dist_left(data, i , j);
 		}
 	}
 }
+
+// essayer de poser partout, si la somme des distances est plus faible que celle d'avant, changer les positions candidates
 
 int player_play(t_data *data)
 {
 	int i;
 	int j;
 
-	player_heat_map(data);
 	print_tab(data); // a ENLEVER
+	player_eval_map(data);
+	print_tab(data); // a ENLEVER
+	print_piece(data);
 	i = data->rows;
 	while (--i >= 0)
 	{
@@ -88,11 +92,15 @@ int player_play(t_data *data)
 		while (--j >= 0)
 		{
 			if (piece_has_room(data, i, j))
-			{
-				piece_put(data, i, j);
-				return (1);
-			}
+				piece_eval_distance(data, i, j, 0);
 		}
 	}
-	return (0);
+	fprintf(f, "piece will be put at (%d, %d)\n", data->candidate_y, data->candidate_x);
+	if (data->candidate_dist == -1)
+		return (0);
+	else
+	{
+		piece_put(data, data->candidate_y, data->candidate_x);
+		return (1);
+	}
 }

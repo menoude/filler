@@ -21,16 +21,21 @@ struct s_data
 	int		piece_height;
 	int		piece_width;
 	int		max_distance;
+	int		candidate_y;
+	int		candidate_x;
+	int		candidate_dist;
 };
 
 FILE *f; // a supprimer
 void print_tab(t_data *data); // pareil
+void print_piece(t_data *data);
 
 
 
 void	reader_skip_line(void);
 int		reader_tab_dimensions(t_data *data);
 int		reader_piece_dimensions(t_data *data);
+void	reader_revise_piece_dimensions(t_data *data);
 void	reader_free_info(char *input, char **info, int read);
 
 
@@ -40,13 +45,14 @@ int		tab_read(t_data *data, char c);
 void	tab_free(t_data *data);
 
 int		piece_update(t_data *data);
+void	piece_free(t_data *data);
 void	piece_put(t_data *data, int y, int x);
 int		piece_has_room(t_data *data, int y, int x);
-void	piece_free(t_data *data);
+void	piece_eval_distance(t_data *data, int y, int x, int size);
 
 
 int player_play(t_data *data);
-void player_heat_map(t_data *data);
+void player_eval_map(t_data *data);
 
 
 #endif

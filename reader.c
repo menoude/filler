@@ -26,6 +26,32 @@ int reader_tab_dimensions(t_data *data)
 	return (1);
 }
 
+void reader_revise_piece_dimensions(t_data *data)
+{
+	int i;
+	int j;
+	int lowest;
+	int rightest;
+
+	lowest = 0;
+	rightest = 0;
+	i = -1;
+	while (++i < data->piece_height)
+	{
+		j = -1;
+		while (++j < data->piece_width)
+		{
+			if (data->piece[i][j] == '*')
+			{
+				lowest = i > lowest ? i : lowest;
+				rightest = j > rightest ? j : rightest;
+			}
+		}
+	}
+	data->piece_height = lowest + 1;
+	data->piece_width = rightest + 1;
+}
+
 int reader_piece_dimensions(t_data *data)
 {
 	char *input;
