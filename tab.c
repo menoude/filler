@@ -59,6 +59,7 @@ int tab_update(t_data *data)
 	int		i;
 	int		j;
 
+
 	if (!data->tab)
 	{
 		if (!tab_init(data))

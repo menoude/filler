@@ -20,6 +20,8 @@ struct s_data
 	char	**piece;
 	int		piece_height;
 	int		piece_width;
+	int		y_offset;
+	int		x_offset;
 	int		max_distance;
 	int		candidate_y;
 	int		candidate_x;
@@ -46,6 +48,13 @@ int		piece_update(t_data *data);
 void	piece_revise_height(t_data *data);
 void	piece_revise_width(t_data *data);
 void	piece_free(t_data *data);
+
+void	trim_height_top(t_data *data);
+void	trim_height_bottom(t_data *data);
+void	trim_width_left(t_data *data);
+void	trim_width_right(t_data *data);
+void	trim_piece(t_data *data);
+
 
 int		cell_authorized(t_data *data, int y, int x);
 void	cell_eval_distance(t_data *data, int y, int x, int size);

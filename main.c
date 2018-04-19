@@ -11,7 +11,7 @@ void print_piece(t_data *data)
 	{
 		j = -1;
 		while (++j < data->piece_width)
-			fprintf(f, "%c", data->piece[i][j]);
+			fprintf(f, "%c", data->piece[data->y_offset + i][data->x_offset + j]);
 		fprintf(f, "\n");
 	}
 	fprintf(f, "\n");

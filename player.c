@@ -72,11 +72,17 @@ int player_play(t_data *data)
 	int i;
 	int j;
 
+
+	fprintf(f, "y_offset = %d and x_offset = %d\n", data->y_offset, data->x_offset);
+	print_piece(data);
+
+
+
 	player_eval_map(data);
-	i = data->rows - data->piece_height + 1;
+	i = data->rows - data->piece_height; // + 1 ???
 	while (--i >= 0)
 	{
-		j = data->cols - data->piece_width + 1;
+		j = data->cols - data->piece_width; // + 1 ???
 		while (--j >= 0)
 		{
 			if (cell_authorized(data, i, j))

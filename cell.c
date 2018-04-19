@@ -24,9 +24,11 @@ int cell_authorized(t_data *data, int y, int x)
 		{
 			if (superpos > 1)
 				return (0);
-			else if (data->piece[i][j] == '*' && data->tab[y + i][x + j] == -1)
+			else if (data->piece[data->y_offset + i][data->x_offset + j] == '*'
+					&& data->tab[y + i][x + j] == -1)
 				superpos++;
-			else if (data->piece[i][j] == '*' && data->tab[y + i][x + j] == 0)
+			else if (data->piece[data->y_offset + i][data->x_offset + j] == '*'
+			 		&& data->tab[y + i][x + j] == 0)
 				return (0);
 		}
 	}
@@ -47,7 +49,8 @@ void cell_eval_distance(t_data *data, int y, int x, int size)
 		j = -1;
 		while (++j < data->piece_width)
 		{
-			if (data->piece[i][j] == '*' && data->tab[y + i][x + j] != -1)
+			if (data->piece[data->y_offset + i][data->x_offset + j] == '*'
+				&& data->tab[y + i][x + j] != -1)
 			{
 				dist += data->tab[y + i][x + j];
 				size++;
@@ -56,8 +59,8 @@ void cell_eval_distance(t_data *data, int y, int x, int size)
 	}
 	if (dist / size < data->candidate_dist)
 	{
-		data->candidate_y = y;
-		data->candidate_x = x;
+		data->candidate_y = y - data->y_offset;
+		data->candidate_x = x - data->x_offset;
 		data->candidate_dist = dist / size;
 	}
 }
