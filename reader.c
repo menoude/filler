@@ -38,8 +38,8 @@ int reader_piece_dimensions(t_data *data)
 	info = ft_strsplit(input, ' ');
 	data->piece_height = ft_atoi(info[1]);
 	data->piece_width = ft_atoi(info[2]);
-	data->y_offset = -1;
-	data->x_offset = -1;
+	data->y_offset = 0;
+	data->x_offset = 0;
 	reader_free_info(input, info, read);
 	return (1);
 }

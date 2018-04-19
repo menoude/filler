@@ -32,7 +32,9 @@ FILE *f; // a supprimer
 void print_tab(t_data *data); // pareil
 void print_piece(t_data *data);
 
-// GESTION D'ERREURS C"EST COMMENT ?
+// check les leaks ! Et segfault quand j'enleve fsanitize :/
+
+
 void	reader_skip_line(void);
 int		reader_tab_dimensions(t_data *data);
 int		reader_piece_dimensions(t_data *data);
@@ -49,10 +51,10 @@ void	piece_revise_height(t_data *data);
 void	piece_revise_width(t_data *data);
 void	piece_free(t_data *data);
 
-void	trim_height_top(t_data *data);
-void	trim_height_bottom(t_data *data);
-void	trim_width_left(t_data *data);
-void	trim_width_right(t_data *data);
+void	trim_top(t_data *data);
+void	trim_bottom(t_data *data);
+void	trim_left(t_data *data);
+void	trim_right(t_data *data);
 void	trim_piece(t_data *data);
 
 

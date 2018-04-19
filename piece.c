@@ -17,7 +17,12 @@ int piece_update(t_data *data)
 		data->piece[i] = ft_strdup(input);
 		free(input);
 	}
-	// trim_piece(data);
+
+	// print_piece(data);
+
+	trim_piece(data);
+
+	// print_piece(data);
 	data->candidate_y = -1;
 	data->candidate_x = -1;
 	data->candidate_dist = data->max_distance;

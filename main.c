@@ -37,7 +37,7 @@ void print_tab(t_data *data)
                 fprintf(f, "%2d ", data->tab[i][j]);
             fprintf(f, "\n");
         }
-    fprintf(f, "data->rows = %d, data->cols = %d\n", data->rows, data->cols);
+    // fprintf(f, "data->rows = %d, data->cols = %d\n", data->rows, data->cols);
 }
 
 int main(void)
@@ -45,7 +45,7 @@ int main(void)
     char		*input;
 	t_data		data;
 
-    f = fopen("vm_input.txt", "w+");
+    // f = fopen("vm_input.txt", "w+");
 	get_next_line(0, &input);
 	if (ft_strequ(input, "$$$ exec p1 : [players/meyami.filler]"))
 		data.symbol = 'O';
@@ -66,6 +66,6 @@ int main(void)
 	}
 	tab_free(&data);
 	piece_free(&data);
-    fclose(f);
+    // fclose(f);
     return (0);
 }

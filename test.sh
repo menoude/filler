@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-player1=carli.filler
+player1=abanlin.filler
 player2=meyami.filler
 
 n_turns=5

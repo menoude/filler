@@ -4,6 +4,9 @@ void cell_fill(t_data *data, int y, int x)
 {
 	piece_free(data);
 	ft_printf("%d %d\n", y, x);
+
+
+	// fprintf(f, "%d %d\n", y, x);
 }
 
 int cell_authorized(t_data *data, int y, int x)
