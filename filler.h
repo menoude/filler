@@ -30,12 +30,10 @@ FILE *f; // a supprimer
 void print_tab(t_data *data); // pareil
 void print_piece(t_data *data);
 
-
-
+// GESTION D'ERREURS C"EST COMMENT ?
 void	reader_skip_line(void);
 int		reader_tab_dimensions(t_data *data);
 int		reader_piece_dimensions(t_data *data);
-void	reader_revise_piece_dimensions(t_data *data);
 void	reader_free_info(char *input, char **info, int read);
 
 
@@ -45,17 +43,15 @@ int		tab_read(t_data *data, char c);
 void	tab_free(t_data *data);
 
 int		piece_update(t_data *data);
+void	piece_revise_height(t_data *data);
+void	piece_revise_width(t_data *data);
 void	piece_free(t_data *data);
-void	piece_put(t_data *data, int y, int x);
-int		piece_has_room(t_data *data, int y, int x);
-void	piece_eval_distance(t_data *data, int y, int x, int size);
 
+int		cell_authorized(t_data *data, int y, int x);
+void	cell_eval_distance(t_data *data, int y, int x, int size);
+void	cell_fill(t_data *data, int y, int x);
 
 int player_play(t_data *data);
 void player_eval_map(t_data *data);
 
-
 #endif
-
-// GESTION D'ERREURS C"EST COMMENT ?
-// pas oublier de free les pieces juste apres les avoir placées

@@ -16,7 +16,7 @@ void print_piece(t_data *data)
 	}
 	fprintf(f, "\n");
 }
-
+// pareil
 void print_tab(t_data *data)
 {
     int i;
@@ -44,16 +44,19 @@ int main(void)
 {
     char		*input;
 	t_data		data;
-    int			i;
 
     f = fopen("vm_input.txt", "w+");
 	get_next_line(0, &input);
 	if (ft_strequ(input, "$$$ exec p1 : [players/meyami.filler]"))
 		data.symbol = 'O';
-	else
+	else if (ft_strequ(input, "$$$ exec p2 : [players/meyami.filler]"))
 		data.symbol = 'X';
+	else
+	{
+		free(input);
+		return (0);
+	}
 	free(input);
-	i = 0;
 	while (1)
 	{
 		if (!tab_update(&data) || !piece_update(&data))
@@ -61,6 +64,8 @@ int main(void)
 		if (!player_play(&data))
 			break ;
 	}
+	tab_free(&data);
+	piece_free(&data);
     fclose(f);
     return (0);
 }

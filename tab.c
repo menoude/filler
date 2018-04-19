@@ -24,11 +24,9 @@ int tab_init(t_data *data)
 {
 	int		i;
 
-
 	if (!reader_tab_dimensions(data)
 		|| !(data->tab = ft_memalloc(sizeof(int *) * data->rows)))
 		return (0);
-	ft_bzero((void *)data->tab, sizeof(int *) * data->rows);
 	i = -1;
 	while (++i < data->rows)
 	{

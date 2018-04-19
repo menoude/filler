@@ -12,9 +12,9 @@
 
 NAME = players/meyami.filler
 DIR_LIB = libft
-SRC = main.c tab.c piece.c player.c reader.c
+SRC = main.c tab.c piece.c player.c reader.c cell.c
 BINARIES = $(SRC:.c=.o)
-CC = gcc -Wall -Werror -Wextra -g -fsanitize=address # ENLEVER LE G et le fsanitize
+CC = gcc -Wall -Werror -Wextra #-g -fsanitize=address # ENLEVER LE G et le fsanitize
 
 all: $(DIR_LIB) $(NAME)
 
