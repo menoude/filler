@@ -72,20 +72,12 @@ int player_play(t_data *data)
 	int i;
 	int j;
 
-
-	// fprintf(f, "y_offset = %d and x_offset = %d\n", data->y_offset, data->x_offset);
-
-// print_tab(data);
-
 	player_eval_map(data);
-
-// print_tab(data);
-
-	i = data->rows - data->piece_height; // + 1 ???
-	while (--i >= 0)
+	i = -1;
+	while (++i < data->rows - data->piece_height)
 	{
-		j = data->cols - data->piece_width; // + 1 ???
-		while (--j >= 0)
+		j = -1;
+		while (++j < data->cols - data->piece_width)
 		{
 			if (cell_authorized(data, i, j))
 				cell_eval_distance(data, i, j, 0);

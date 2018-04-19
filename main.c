@@ -57,6 +57,7 @@ int main(void)
 		return (0);
 	}
 	free(input);
+	data.tab = 0;
 	while (1)
 	{
 		if (!tab_update(&data) || !piece_update(&data))

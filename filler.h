@@ -2,12 +2,7 @@
 # define FILLER_H
 
 #include <stdlib.h>
-#include <fcntl.h> // a ENLEVER
-#include <unistd.h> // pareil
-
 #include "./libft/includes/libft.h"
-
-typedef struct s_piece t_piece;
 
 typedef struct s_data t_data;
 
@@ -32,14 +27,10 @@ FILE *f; // a supprimer
 void print_tab(t_data *data); // pareil
 void print_piece(t_data *data);
 
-// check les leaks ! Et segfault quand j'enleve fsanitize :/
-
-
 void	reader_skip_line(void);
 int		reader_tab_dimensions(t_data *data);
 int		reader_piece_dimensions(t_data *data);
 void	reader_free_info(char *input, char **info, int read);
-
 
 int		tab_init(t_data *data);
 int		tab_update(t_data *data);
@@ -56,7 +47,6 @@ void	trim_bottom(t_data *data);
 void	trim_left(t_data *data);
 void	trim_right(t_data *data);
 void	trim_piece(t_data *data);
-
 
 int		cell_authorized(t_data *data, int y, int x);
 void	cell_eval_distance(t_data *data, int y, int x, int size);

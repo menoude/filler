@@ -10,11 +10,11 @@
 #                                                                              #
 # **************************************************************************** #
 
-player1=abanlin.filler
-player2=meyami.filler
+player1=meyami.filler
+player2=carli.filler
 
 n_turns=5
-map=01
+map=02
 
 # dont touch after this line --------------------------------------------------
 
