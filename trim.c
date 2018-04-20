@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   trim.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: meyami <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/04/20 16:44:52 by meyami            #+#    #+#             */
+/*   Updated: 2018/04/20 16:44:53 by meyami           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "filler.h"
 
-void trim_bottom(t_data *data)
+void	trim_bottom(t_data *data)
 {
 	int i;
 	int j;
@@ -20,7 +32,7 @@ void trim_bottom(t_data *data)
 	}
 }
 
-void trim_right(t_data *data)
+void	trim_right(t_data *data)
 {
 	int i;
 	int j;
@@ -40,7 +52,7 @@ void trim_right(t_data *data)
 	}
 }
 
-void trim_top(t_data *data)
+void	trim_top(t_data *data)
 {
 	int i;
 	int j;
@@ -61,7 +73,7 @@ void trim_top(t_data *data)
 	}
 }
 
-void trim_left(t_data *data)
+void	trim_left(t_data *data)
 {
 	int i;
 	int j;
@@ -82,14 +94,10 @@ void trim_left(t_data *data)
 	}
 }
 
-void trim_piece(t_data *data)
+void	trim_piece(t_data *data)
 {
-	// fprintf(f, "offset y = %d, offset x = %d, height = %d, width = %d\n", data->y_offset, data->x_offset, data->piece_height, data->piece_width);
-
 	trim_bottom(data);
 	trim_right(data);
 	trim_top(data);
 	trim_left(data);
-
-	// fprintf(f, "offset y = %d, offset x = %d, height = %d, width = %d\n", data->y_offset, data->x_offset, data->piece_height, data->piece_width);
 }

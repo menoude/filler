@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   filler.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: meyami <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/04/20 16:47:54 by meyami            #+#    #+#             */
+/*   Updated: 2018/04/20 16:47:56 by meyami           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FILLER_H
 # define FILLER_H
 
-#include <stdlib.h>
-#include "./libft/includes/libft.h"
+# include <stdlib.h>
+# include "./libft/includes/libft.h"
 
-typedef struct s_data t_data;
+typedef struct s_data	t_data;
 
-struct s_data
+struct	s_data
 {
 	char	symbol;
 	int		rows;
@@ -22,10 +34,6 @@ struct s_data
 	int		candidate_x;
 	int		candidate_dist;
 };
-
-FILE *f; // a supprimer
-void print_tab(t_data *data); // pareil
-void print_piece(t_data *data);
 
 void	reader_skip_line(void);
 int		reader_tab_dimensions(t_data *data);
@@ -52,7 +60,7 @@ int		cell_authorized(t_data *data, int y, int x);
 void	cell_eval_distance(t_data *data, int y, int x, int size);
 void	cell_fill(t_data *data, int y, int x);
 
-int player_play(t_data *data);
-void player_eval_map(t_data *data);
+int		player_play(t_data *data);
+void	player_eval_map(t_data *data);
 
 #endif

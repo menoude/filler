@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reader.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: meyami <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/04/20 16:45:15 by meyami            #+#    #+#             */
+/*   Updated: 2018/04/20 16:45:16 by meyami           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "filler.h"
 
-void reader_skip_line(void)
+void	reader_skip_line(void)
 {
 	char	*input;
 	int		read;
@@ -10,11 +22,11 @@ void reader_skip_line(void)
 		free(input);
 }
 
-int reader_tab_dimensions(t_data *data)
+int		reader_tab_dimensions(t_data *data)
 {
-	char *input;
-	char **info;
-	int read;
+	char	*input;
+	char	**info;
+	int		read;
 
 	read = get_next_line(0, &input);
 	if (read < 1)
@@ -26,11 +38,11 @@ int reader_tab_dimensions(t_data *data)
 	return (1);
 }
 
-int reader_piece_dimensions(t_data *data)
+int		reader_piece_dimensions(t_data *data)
 {
-	char *input;
-	char **info;
-	int read;
+	char	*input;
+	char	**info;
+	int		read;
 
 	read = get_next_line(0, &input);
 	if (read < 1)
@@ -44,7 +56,7 @@ int reader_piece_dimensions(t_data *data)
 	return (1);
 }
 
-void reader_free_info(char *input, char **info, int read)
+void	reader_free_info(char *input, char **info, int read)
 {
 	if (read)
 		free(input);

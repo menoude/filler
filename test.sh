@@ -14,7 +14,7 @@ player1=meyami.filler
 player2=carli.filler
 
 n_turns=5
-map=02
+map=00
 
 # dont touch after this line --------------------------------------------------
 

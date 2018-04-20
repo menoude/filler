@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tab.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: meyami <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/04/20 16:44:31 by meyami            #+#    #+#             */
+/*   Updated: 2018/04/20 16:44:33 by meyami           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "filler.h"
 
 int		tab_read(t_data *data, char c)
@@ -20,7 +32,7 @@ int		tab_read(t_data *data, char c)
 		return (data->max_distance);
 }
 
-int tab_init(t_data *data)
+int		tab_init(t_data *data)
 {
 	int		i;
 
@@ -40,7 +52,7 @@ int tab_init(t_data *data)
 	return (1);
 }
 
-void tab_free(t_data *data)
+void	tab_free(t_data *data)
 {
 	int i;
 
@@ -53,12 +65,11 @@ void tab_free(t_data *data)
 	free(data->tab);
 }
 
-int tab_update(t_data *data)
+int		tab_update(t_data *data)
 {
 	char	*input;
 	int		i;
 	int		j;
-
 
 	if (!data->tab)
 	{

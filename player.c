@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   player.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: meyami <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/04/20 16:45:01 by meyami            #+#    #+#             */
+/*   Updated: 2018/04/20 16:45:03 by meyami           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "filler.h"
 
-void player_write_dist_right(t_data *data, int y, int x)
+void	player_write_dist_right(t_data *data, int y, int x)
 {
 	int i;
 	int j;
@@ -24,7 +36,7 @@ void player_write_dist_right(t_data *data, int y, int x)
 	}
 }
 
-void player_write_dist_left(t_data *data, int y, int x)
+void	player_write_dist_left(t_data *data, int y, int x)
 {
 	int i;
 	int j;
@@ -47,7 +59,7 @@ void player_write_dist_left(t_data *data, int y, int x)
 	}
 }
 
-void player_eval_map(t_data *data)
+void	player_eval_map(t_data *data)
 {
 	int i;
 	int j;
@@ -61,13 +73,13 @@ void player_eval_map(t_data *data)
 			if (data->tab[i][j] > 0)
 			{
 				player_write_dist_right(data, i, j);
-				player_write_dist_left(data, i , j);
+				player_write_dist_left(data, i, j);
 			}
 		}
 	}
 }
 
-int player_play(t_data *data)
+int		player_play(t_data *data)
 {
 	int i;
 	int j;

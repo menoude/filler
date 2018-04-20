@@ -1,15 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cell.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: meyami <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/04/20 16:43:07 by meyami            #+#    #+#             */
+/*   Updated: 2018/04/20 16:43:10 by meyami           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "filler.h"
 
-void cell_fill(t_data *data, int y, int x)
+void	cell_fill(t_data *data, int y, int x)
 {
 	piece_free(data);
 	ft_printf("%d %d\n", y, x);
-
-
-	// fprintf(f, "%d %d\n", y, x);
 }
 
-int cell_authorized(t_data *data, int y, int x)
+int		cell_authorized(t_data *data, int y, int x)
 {
 	int i;
 	int j;
@@ -22,8 +31,8 @@ int cell_authorized(t_data *data, int y, int x)
 	i = -1;
 	while (++i < data->piece_height)
 	{
-	 	j = -1;
-	 	while (++j < data->piece_width)
+		j = -1;
+		while (++j < data->piece_width)
 		{
 			if (superpos > 1)
 				return (0);
@@ -31,15 +40,14 @@ int cell_authorized(t_data *data, int y, int x)
 					&& data->tab[y + i][x + j] == -1)
 				superpos++;
 			else if (data->piece[data->y_offset + i][data->x_offset + j] == '*'
-			 		&& data->tab[y + i][x + j] == 0)
+					&& data->tab[y + i][x + j] == 0)
 				return (0);
 		}
 	}
 	return (superpos == 1);
 }
 
-
-void cell_eval_distance(t_data *data, int y, int x, int size)
+void	cell_eval_distance(t_data *data, int y, int x, int size)
 {
 	int i;
 	int j;
